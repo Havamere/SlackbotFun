@@ -15,6 +15,7 @@ app.get('/', function(request, response) {
     var urlObject = url.parse(request.url,true).query
     console.log(urlObject)
     sendMessage(urlObject);
+    funnyResponse(urlObject);
 
 }); //app.get
 
@@ -42,3 +43,26 @@ function sendMessage(urlObject){
 }
 
 /////////////////////////////////////////////////////////
+
+//////////////////// Respond to message /////////////////
+
+function funnyResponse(urlObject) {
+    slack = new Slack();
+    slack.setWebhook(urlObject.response_url);
+
+    // http.get()
+
+    //new slash command
+    var userText = urlObject.text;
+
+    slack.webhook({
+        channel: urlObject.channel_name,
+
+        text: "Your mom likes " + userText
+
+    } , function(err, response) {
+        if (err) {
+            console.log(err)
+        }
+    });
+}

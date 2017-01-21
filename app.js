@@ -1,6 +1,7 @@
     var Slack = require('slack-node');
 var express = require('express');
 var url = require('url');
+var http = require("http");
 var app = express();
 
 
@@ -50,8 +51,8 @@ function funnyResponse(urlObject) {
     slack = new Slack();
     slack.setWebhook(urlObject.response_url);
 
-    // http.get()
-
+    //http.get()
+    console.log("Hi there, I'm a console log!");
     //new slash command
     var userText = urlObject.text;
 

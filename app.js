@@ -1,9 +1,15 @@
     var Slack = require('slack-node');
 var express = require('express');
 var url = require('url');
-var http = require("http");
+var request = require("request");
 var app = express();
 
+
+// Credentials for Flickr API.
+var credentials = {
+    key: "03a3596a934e192f8d95f41bb5bc1684",
+    secret: "1158b7c4ac3fa826"
+}
 
 ////////////// THE SETUP ///////////////////////////////////////////
 
@@ -51,10 +57,19 @@ function funnyResponse(urlObject) {
     slack = new Slack();
     slack.setWebhook(urlObject.response_url);
 
-    //http.get()
-    console.log("Hi there, I'm a console log!");
     //new slash command
     var userText = urlObject.text;
+
+    request("https://api.flickr.com/services/rest/?&method=flickr.photos.search&api_key="+credentials.key
+        +"&format=json&per_page=1&safe_search=1&tags="+userText, function(error, response, body) {
+
+            var pic = JSON.parse(response.slice(14, response.length - 1);
+
+            console.log(pic);
+        }
+    //console.log("Hi there, I'm a console log!");
+
+
 
     slack.webhook({
         channel: urlObject.channel_name,

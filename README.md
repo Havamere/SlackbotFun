@@ -1,3 +1,4 @@
+
 1. Clone this repo: git@github.com:leon-do/Slack-Slash-Commands-101.git
 
 2. Push this repo onto a server (example: heroku)
@@ -21,3 +22,7 @@
 11. open slack and type: /foobar catfish
 
 12. you should get a message that says "hello you typed: catfish"
+
+
+# SlackbotFun
+Fun with slackbots

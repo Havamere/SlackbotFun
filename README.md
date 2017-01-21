@@ -1,0 +1,2 @@
+# SlackbotFun
+Fun with slackbots

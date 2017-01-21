@@ -66,7 +66,8 @@ function funnyResponse(urlObject) {
             var pic = JSON.parse(response.slice(14, response.length - 1);
 
             console.log(pic);
-        }
+
+        });
     //console.log("Hi there, I'm a console log!");
 
 

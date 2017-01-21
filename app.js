@@ -63,7 +63,7 @@ function funnyResponse(urlObject) {
     request("https://api.flickr.com/services/rest/?&method=flickr.photos.search&api_key="+credentials.key
         +"&format=json&per_page=1&safe_search=1&tags="+userText, function(error, response, body) {
 
-            console.log(body);
+            console.log("this is the body:" + body);
 
             var pic = JSON.parse(body.slice(14, response.length - 1));
 
